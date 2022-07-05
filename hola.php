@@ -11,7 +11,7 @@
 
         echo "Hola mundo <br>";
         echo date ("d/m/Y");
-    ?>
+    ?>2
 
     
 </body>
