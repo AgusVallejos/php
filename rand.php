@@ -6,6 +6,6 @@ error_reporting(E_ALL);
 
 $valor = rand(1, 5);
 
-echo $valor == 1 || $valor == 3 || $valor == 5? "El número es impar" : "El número es par";
+echo $valor == 1 || $valor == 3 || $valor == 5? "El número $valor es impar" : "El número $valor es par";
 
 ?>
