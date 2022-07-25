@@ -58,7 +58,7 @@ if ($_POST){
                     </div>
 
                     <div class="my-4">
-                        <button class="btn btn-primary">Ingresar</button>
+                        <button class="btn btn-primary" type="submit">Ingresar</button>
                     </div>
                 </form>
             </div>
