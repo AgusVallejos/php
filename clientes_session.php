@@ -15,9 +15,11 @@ if(isset($_SESSION["listadoClientes"])){
 }
 
 
-
+//pregunta si es POSTBACK. Sea para enviar o eliminar todos
 if ($_POST) {
     //asignamos en variables los datos que vengan del formulario 
+
+    if(isset($_POST["btnEnviar"])){
     $nombre = $_POST["txtNombre"];
     $dni = $_POST["txtDni"];
     $telefono = $_POST["txtTelefono"];
@@ -28,6 +30,23 @@ if ($_POST) {
 
     //actualiza el contenido de variable de session
     $_SESSION["listadoClientes"] = $aClientes;
+    }
+
+    if(isset($_POST["btnEliminar"])){
+        session_destroy();
+        $aClientes = array();
+    }
+}
+
+//pregunta si viene algo en la query string 
+if(isset($_GET["pos"])){
+    // recupero el dato que viene desde la query string via get
+    $pos = $_GET["pos"];
+    //Elimina la posicion del array indicada
+    unset($aClientes[$pos]);
+    //Actualiza la variable de session con el array actualizado
+    $_SESSION["listadoClientes"] = $aClientes;
+    header("Location: clientes_session.php");
 }
 
 ?>
@@ -41,6 +60,7 @@ if ($_POST) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Listado de clientes</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 </head>
 
 <body>
@@ -73,8 +93,8 @@ if ($_POST) {
 
 
                     <div class="my-3">
-                        <button type="submit" class="btn btn-primary">Enviar</button>
-                        <button type="submit" class="btn btn-danger">Eliminar</button>
+                        <button type="submit" name="btnEnviar" class="btn btn-primary">Enviar</button>
+                        <button type="submit" name="btnEliminar" class="btn btn-danger">Eliminar</button>
                     </div>
                 </form>
             </div>
@@ -88,16 +108,18 @@ if ($_POST) {
                             <th>DNI: </th>
                             <th>Teléfono: </th>
                             <th>Edad: </th>
+                            <th></th>
                         </tr>
                     </thead>
 
                     <tbody>
-                        <?php foreach ($aClientes as $cliente) : ?>
+                        <?php foreach ($aClientes as $pos => $cliente) : ?>
                             <tr>
                                 <td><?php echo $cliente["nombre"]; ?></td>
                                 <td><?php echo $cliente["dni"]; ?></td>
                                 <td><?php echo $cliente["telefono"]; ?></td>
                                 <td><?php echo $cliente["edad"]; ?></td>
+                                <td><a href="clientes_session.php?pos=<?php echo $pos; ?>"<i class="bi bi-trash"></i></td>
                             </tr>
 
                         <?php endforeach; ?>
