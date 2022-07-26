@@ -28,8 +28,7 @@ function print_f($variable)
 //Uso
 $aNotas = array(8, 5, 7, 9, 10);
 $msg = "Este es un mensaje";
-print_f($msg);
-print_f($aNotas);
+print_f($aNotas)
 
 ?>
 
