@@ -3,7 +3,6 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-session_start();
 
 //Preguntar si existe el archivo
 if (file_exists("archivo.txt")){
@@ -17,6 +16,7 @@ if (file_exists("archivo.txt")){
     //Creamos un aClientes inicializado como un array vacío
     $aClientes = array();
 }
+
 
 
 if($_POST){
@@ -112,7 +112,7 @@ if($_POST){
                         <?php foreach ($aClientes as $pos => $cliente): ?>
                         <tr>
                             <td><?php ?></td>
-                            <td><? echo $cliente["documento"]; ?></td>
+                            <td><?php echo $cliente["documento"]; ?></td>
                             <td><?php echo $cliente["nombre"]; ?></td>
                             <td><?php echo $cliente["correo"]; ?></td>
                             <td>
