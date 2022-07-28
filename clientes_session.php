@@ -119,7 +119,7 @@ if(isset($_GET["pos"])){
                                 <td><?php echo $cliente["dni"]; ?></td>
                                 <td><?php echo $cliente["telefono"]; ?></td>
                                 <td><?php echo $cliente["edad"]; ?></td>
-                                <td><a href="clientes_session.php?pos=<?php echo $pos; ?>"<i class="bi bi-trash"></i></td>
+                                <td><a href="clientes_session.php?pos=<?php echo $pos; ?>"><i class="bi bi-trash"></i></td>
                             </tr>
 
                         <?php endforeach; ?>
