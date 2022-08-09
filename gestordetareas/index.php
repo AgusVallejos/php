@@ -176,7 +176,7 @@ if (isset($_GET["do"]) && $_GET["do"] == "eliminar") {
                             <td><?php echo $tarea["estado"]; ?></td>
                             <td>
                                 <a href="?id=<?php echo $pos ?>" class="btn btn-secondary"><i class="fa-solid fa-pencil"></i></a>
-                                <a href="?id=<?php echo $pos ?>&do=eliminar" class="btn btn-alert"><i class="fa-solid fa-trash"></i></a>
+                                <a href="?id=<?php echo $pos ?>&do=eliminar" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
                             </td>
                         </tr>
                         <?php endforeach; ?>
