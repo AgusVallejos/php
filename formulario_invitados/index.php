@@ -93,7 +93,7 @@ if($_POST){
 
                 <div class="mt-5">
                     <label for="">Ingresa el código secreto Para el pase VIP: </label>
-                    <input type="text" name="txtCodigo" id="txtCodigo" class="form-control">
+                    <input type="text" name="txtCodigo" id="txtCodigo" class="form-control"ahsqdfrre              >
                     <button type="submit" class="btn btn-primary" name="btnVip">Verificar código</button>
         
                 </div>
