@@ -6,11 +6,29 @@ error_reporting(E_ALL);
 //Definiciones de las clases.
 
 class Persona{
-    public $dni;
-    public $nombre;
-    public $edad;
-    public $nacionalidad;
+    protected $dni;
+    protected $nombre;
+    protected $edad;
+    protected $nacionalidad;
+
+    public function __construct($dni="", $nombre="", $edad="", $nacionalidad=""){
+        $this->dni = $dni;
+    }
+
+    public function setDni($dni){ $this->dni = $dni; }
+    public function getDni(){ return $this->dni; }
+
+    public function setNombre($nombre){ $this->nombre = $nombre;}
+    public function getNombre(){ return $this->nombre; }
+    
+    public function setNacionalidad($nacionalidad){ $this->nacionalidad = $nacionalidad; }
+    public function getNacionalidad(){ return $this->nacionalidad; }
+    
+    public function setEdad($edad){ $this->edad = $edad; }
+    public function getEdad(){ return $this->edad; }
+
     public function imprimir(){}
+
 }
 
 class Alumno extends Persona{
@@ -26,6 +44,15 @@ class Alumno extends Persona{
         $this ->notaPhp = 0.0;
         $this ->NotaProyecto = 0.0;
     }
+
+    public function __get($propiedad) {
+        return $this->$propiedad;
+    }
+
+    public function __set($propiedad, $valor) {
+        $this->$propiedad = $valor;
+    }
+
 
     public function imprimir(){
         echo "DNI: ". $this->dni . "<br>";
@@ -44,8 +71,18 @@ class Alumno extends Persona{
 
 class Docente extends Persona{
     public $especialidad;
+    const ESPECIALIDAD_WP = "Wordpress";
+    const ESPECIALIDAD_ECO = "Economía aplicada";
+    const ESPECIALIDAD_BBDD = "Base de datos";
+
+    
     public function imprimir(){}
-    public function imprimirEspecialidadesHabilitadas(){}
+    public function imprimirEspecialidadesHabilitadas(){
+        echo "Un docente puede tener las siguientes especialidades:<br>";
+        echo "Especialidad 1:";
+        echo "Especialidad 2:";
+        echo "Especialidad 3:";
+    }
 }
 
 //Programa
