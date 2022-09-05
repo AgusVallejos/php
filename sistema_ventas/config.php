@@ -5,6 +5,8 @@ error_reporting(E_ALL);
 
 //Iniciamos la session
 session_start();
+  
+
 
 class Config {
     const BBDD_HOST = "127.0.0.1";
